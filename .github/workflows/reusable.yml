@@ -1,0 +1,18 @@
+on:
+  workflow_call:
+    inputs:
+      my-input:
+        required: true
+        type: string
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+    # test-input
+    - id: test-input
+      name: test-input
+      env:
+        MY_INPUT: ${{ inputs.my-input }}
+      run: |
+        echo "My input is: ${MY_INPUT}"
